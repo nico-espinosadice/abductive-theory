@@ -8,7 +8,6 @@ Original file is located at
 
 # Graphical Models: Similarity Distribution Experimentation
 """
-
 # Import necessary libraries
 import networkx as nx
 import matplotlib.pyplot as plt
