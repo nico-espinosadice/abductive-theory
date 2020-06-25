@@ -3,6 +3,9 @@
 
 #### Similarity: Edit-Distance Implementation
 
+# Import necessary libraries
+from graph-generation.py import *
+
 
 ### Edit-Distance Similarity Implementation: Using only on nodes' immediate children.
 

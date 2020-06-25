@@ -3,6 +3,11 @@
 
 #### Similarity Distribution Over Random Graphs of Constant Size
 
+# Import necessary libraries
+from jaccard-index.py import *
+from edit-distance.py import *
+
+
 ### Parameters
 column_list = ["Edit-Distance Immediate Similarity", "Edit-Distance Full Similarity", 
                  "Jaccard Index Similarity",

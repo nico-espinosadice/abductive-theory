@@ -3,6 +3,10 @@
 
 #### Similarity: Jaccard Index Implementation
 
+# Import necessary libraries
+from graph-generation.py import *
+
+
 ### Calculating Similarity
 
 # calculate the similarity, compares both methods
