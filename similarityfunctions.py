@@ -28,6 +28,8 @@ import itertools as it
 from matplotlib.pyplot import figure
 from collections import OrderedDict
 
+from graphstructurefunctions import *
+
 
 
 # ## Similarity Implementations
@@ -102,7 +104,7 @@ def calculate_intersection(graph, children_a, children_b):
 
 
 # helper func to calculate the union using method 1
-def calculate_union_1(graph, children_a, children_b):
+def calculate_union(graph, children_a, children_b):
     union = 0
     for i in children_a:
         union += children_a[i]
@@ -112,33 +114,14 @@ def calculate_union_1(graph, children_a, children_b):
     return union
 
 
-# In[8]:
-
-
-# helper func to calculate the union using method 2
-def calculate_union_2(graph, children_a, children_b):
-    union = 0
-    for i in children_a:
-        if i in children_b:
-            union += abs(children_a[i] - children_b[i])
-        else:
-            union += children_a[i]
-    for i in children_b:
-        if not i in children_a:
-            union += children_b[i]
-    return union
-
-
 # In[9]:
-
-
 
 # calculate the similarity, compares both methods
 def calculate_jaccard_similarity(graph, node_a, node_b):
     children_a = get_all_children(graph, node_a, {})
     children_b = get_all_children(graph, node_b, {})
     intersection = calculate_intersection(graph, children_a, children_b)
-    union = calculate_union_1(graph, children_a, children_b)
+    union = calculate_union(graph, children_a, children_b)
     if union == 0:
         total = 0
     else:
@@ -258,54 +241,6 @@ def find_most_similar(gm, A):
 
 
 # nx.algorithms.similarity.simrank_similarity(graph, source="node_a", target="node_b")
-
-
-########################################## GENERATING RANDOM WEIGHTED DAGs ############################3
-
-# In[16]:
-
-
-def addNodes(gm, num_nodes):
-    node_list = []
-    
-    for i in range(num_nodes):
-        gm.add_node(i)
-
-    return gm
-
-# NOTE: This function does not have functionality implemented yet that 
-# prevents cycles from occurring
-def addEdges(gm, num_nodes, num_edges):
-    for i in range(num_edges):
-        parent = random.randrange(num_nodes)
-        child = random.randrange(num_nodes)
-        
-        conditional_prob = random.uniform(0, 1)
-        gm.add_edge(parent, child, weight=conditional_prob)
-            
-        if not nx.is_directed_acyclic_graph(gm):
-            gm.remove_edge(parent, child)
-        
-    return gm
-
-# def find_paths(graph, start, end, path=[]):
-#     if start == end:
-#         return path
-    
-#     children = get_children(graph, start)
-    
-#     for node in children:
-#         find_paths(graph, start)
-
-def makeDirectedGraph(num_nodes, num_edges):
-    dg = nx.DiGraph() # creates directed graph
-    dg = addNodes(dg, num_nodes)
-    dg = addEdges(dg, num_nodes, num_edges)
-    return dg
-
-
-# In[21]:
-
 
 # ## Running Experiments
 
@@ -475,7 +410,6 @@ def reverseEdgeWeight(conditional_prob):
     else: return likelihood
         
 
-
 # reverses the order of a tuple
 def Reverse(tuples): 
     new_tup = tuples[::-1] 
@@ -493,8 +427,6 @@ def reverseWeightedDG(dg):
         rdg[e[0]][e[1]]['weight'] = rdg_weight
         
     return rdg
-
-
 
 
 ########### Edit Distance
@@ -562,7 +494,6 @@ def avgJaccard(dg):
     return mean(jindex)
 
 
-
 ######################## CLIQUES ############################
 #Input desired number of cliques, output DAG with that many cliques
 def dgWithCliqs(num_cliq):   
@@ -580,10 +511,9 @@ def dgWithCliqs(num_cliq):
     else:
         return dgWithCliqs(num_cliq)
 
-
-
 #function that accepts a graph, returns a list of all the immediate similarity values between clique pairs. 
 #Do the same for node pairs.
+
 
 def immSimCliqs(dg):
     cliq_rem = clique.clique_removal(dg)
