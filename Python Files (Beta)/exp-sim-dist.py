@@ -8,14 +8,16 @@ from jaccard-index.py import *
 from edit-distance.py import *
 
 
-### Parameters
-column_list = ["Edit-Distance Immediate Similarity", "Edit-Distance Full Similarity", 
+### Constants
+COLUMN_LIST = ["Edit-Distance Immediate Similarity", "Edit-Distance Full Similarity", 
                  "Jaccard Index Similarity",
                  "Longest Maximum Independent Set",
                  "Number of Maximum Cliques",
                  "Longest Maximum Clique"]
 
-metrics = ["mean", "50%", "std"]
+METRICS = ["mean", "50%", "std"]
+
+NODES_TO_EDGES_FACTOR = 1.5
 
 
 
@@ -84,7 +86,7 @@ def getCliqueData(gm):
 def getGraphSummaryRow(graph_summary): 
     graph_summary_row = []
     
-    for column in column_list:
+    for column in COLUMN_LIST:
         graph_summary_row.append(graph_summary[column]["mean"])
         graph_summary_row.append(graph_summary[column]["50%"])
         graph_summary_row.append(graph_summary[column]["std"])
@@ -93,7 +95,7 @@ def getGraphSummaryRow(graph_summary):
 
 
 def getCondensedSimilarityDistribution(graph_dist_list):
-    cols = pd.MultiIndex.from_product([column_list, metrics])
+    cols = pd.MultiIndex.from_product([COLUMN_LIST, METRICS])
     similarity_dist = pd.DataFrame(index = ["Graph Number"], columns = cols)
     
     index = 0
@@ -109,4 +111,9 @@ def getCondensedSimilarityDistribution(graph_dist_list):
 
 
 ### Exporting Data
+# To do
+
+
+
+### Running File
 # To do

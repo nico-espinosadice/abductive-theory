@@ -7,19 +7,6 @@
 from exp-sim-dist import *
 
 
-### Parameters
-
-column_list = ["Edit-Distance Immediate Similarity", "Edit-Distance Full Similarity", 
-                 "Jaccard Index Similarity",
-                 "Longest Maximum Independent Set",
-                 "Number of Maximum Cliques",
-                 "Longest Maximum Clique"]
-
-
-nodes_to_edges_factor = 1.5
-
-
-
 ### Calculating Similarity Distribution Over Graph Sizes
 
 def getGraphSizeDistribution(num_graphs, start_num_nodes, end_num_nodes, step):    
@@ -53,4 +40,9 @@ def getNewRow(graph_distribution):
 
 
 ### Exporting Data
+# To do
+
+
+
+### Running File
 # To do
