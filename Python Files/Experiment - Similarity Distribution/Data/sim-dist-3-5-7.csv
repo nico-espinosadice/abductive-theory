@@ -1,0 +1,6 @@
+,Edit-Distance Immediate Similarity,Edit-Distance Immediate Similarity,Edit-Distance Immediate Similarity,Edit-Distance Full Similarity,Edit-Distance Full Similarity,Edit-Distance Full Similarity,Jaccard Index Similarity,Jaccard Index Similarity,Jaccard Index Similarity,Longest Maximal Independent Set,Longest Maximal Independent Set,Longest Maximal Independent Set,Number of Maximal Cliques,Number of Maximal Cliques,Number of Maximal Cliques,Longest Maximal Clique,Longest Maximal Clique,Longest Maximal Clique
+,mean,50%,std,mean,50%,std,mean,50%,std,mean,50%,std,mean,50%,std,mean,50%,std
+Graph Number,,,,,,,,,,,,,,,,,,
+0,0.4,0.0,0.5026246899500346,0.6,1.0,0.5026246899500346,0.0,0.0,0.0,3.0,3.0,0.0,60.0,60.0,0.0,2.0,2.0,0.0
+1,0.4,0.0,0.5026246899500346,0.6435570063543411,1.0,0.4719907154382854,0.020263394907860933,0.0,0.06236941354565359,5.0,5.0,0.0,60.0,60.0,0.0,2.0,2.0,0.0
+2,0.4608090141909608,0.410223564528128,0.43940730615677964,0.50262612565244,0.4176911347609394,0.45326336336505735,0.038205794119702464,0.0,0.11024859756296082,4.0,4.0,0.0,40.0,40.0,0.0,3.0,3.0,0.0
