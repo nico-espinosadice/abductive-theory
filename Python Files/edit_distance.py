@@ -23,10 +23,10 @@ def get_immediate_similarity(gm, A, B):
             else:
                 cost += 1
 
-        return cost / len(A_children)
+        return 1 - (cost / len(A_children))
     
     else:
-        return 0
+        return 1
 
 
 # Returns the node that is most similar to the input node
@@ -63,7 +63,7 @@ def get_full_similarity(gm, A, B):
                 cost += diff
             else:
                 cost += 1
-        return 1-(cost / len(A_children))
+        return 1 - (cost / len(A_children))
     else:
         return 1
 
