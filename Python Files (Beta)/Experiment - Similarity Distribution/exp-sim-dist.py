@@ -8,19 +8,6 @@ from jaccard-index.py import *
 from edit-distance.py import *
 
 
-### Constants
-COLUMN_LIST = ["Edit-Distance Immediate Similarity", "Edit-Distance Full Similarity", 
-                 "Jaccard Index Similarity",
-                 "Longest Maximum Independent Set",
-                 "Number of Maximum Cliques",
-                 "Longest Maximum Clique"]
-
-METRICS = ["mean", "50%", "std"]
-
-NODES_TO_EDGES_FACTOR = 1.5
-
-
-
 ### Getting Similarity List
 
 def getGraphSimilarityList(num_graphs, num_nodes, num_edges): 
@@ -110,10 +97,24 @@ def getCondensedSimilarityDistribution(graph_dist_list):
 
 
 
-### Exporting Data
-# To do
+### Running The Script
+## Get Parameters and Constants
+parameters = pd.read_csv("parameters.csv")
+
+COLUMN_LIST = parameters["Column List"].to_list()
+METRICS = [metric for metric in parameters["Metrics"].to_list() if str(metric) != 'nan']
+
+NODES_TO_EDGES_FACTOR = parameters["Nodes To Edges Factor"][0]
+NUM_GRAPHS = parameters["Number of Graphs"][0]
+NUM_NODES = parameters["Number of Nodes"][0]
+NUM_EDGES = NUM_NODES * NODES_TO_EDGES_FACTOR
 
 
+## Run The Experiment
+similarity_list = getGraphSimilarityList(NUM_GRAPHS, NUM_NODES, NUM_EDGES)
+similarity_dist = getCondensedSimilarityDistribution(similarity_list)
 
-### Running File
-# To do
+
+## Exporting Data
+file_name = "Data/sim-dist-" + NUM_GRAPHS + "-" + NUM_NODES + "-" + NUM_EDGES + ".csv"
+similarity_dist.to_csv(file_name, index=True)
