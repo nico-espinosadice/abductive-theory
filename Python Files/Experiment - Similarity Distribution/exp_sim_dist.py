@@ -4,8 +4,8 @@
 #### Similarity Distribution Over Random Graphs of Constant Size
 
 # Import necessary libraries
-from jaccard-index.py import *
-from edit-distance.py import *
+from jaccard_index import *
+from edit_distance import *
 
 
 ### Getting Similarity List

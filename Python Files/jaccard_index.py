@@ -4,7 +4,7 @@
 #### Similarity: Jaccard Index Implementation
 
 # Import necessary libraries
-from graph-generation.py import *
+from graph_generation import *
 
 
 ### Calculating Similarity

@@ -4,7 +4,7 @@
 #### Similarity Distribution Over Random Graphs of Varying Size
 
 # Import necessary libraries
-from exp-sim-dist import *
+from exp_sim_dist import *
 
 
 ### Calculating Similarity Distribution Over Graph Sizes
