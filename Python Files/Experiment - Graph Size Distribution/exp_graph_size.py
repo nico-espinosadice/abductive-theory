@@ -57,9 +57,12 @@ STEP = int(parameters["Step"][0])
 
 
 ## Run The Experiment
+print("Beginning the experiment...")
+print("Making graphs starting with", str(START_NUM_NODES), "and going until", str(END_NUM_NODES), "with a step of", str(STEP) + ".")
+print(str(NUM_GRAPHS), "will be made for each graph size, and each graph will have", str(NODES_TO_EDGES_FACTOR) + "x the number of edges as it does nodes.")
 graph_size_dist = getGraphSizeDistribution(NUM_GRAPHS, START_NUM_NODES, END_NUM_NODES, STEP, NODES_TO_EDGES_FACTOR, COLUMN_LIST, METRICS)
-
 
 ## Exporting Data
 file_name = "Data/graph-size-dist-" + str(NUM_GRAPHS) + "-" + str(START_NUM_NODES) + "-" + str(END_NUM_NODES) + "-" + str(STEP) + ".csv"
 graph_size_dist.to_csv(file_name, index=True)
+print("The program has finished running, and the experiment is complete. The data is saved to", file_name + ".")

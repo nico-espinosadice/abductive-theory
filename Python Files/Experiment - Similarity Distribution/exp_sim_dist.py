@@ -23,6 +23,8 @@ NUM_EDGES = int(NUM_NODES * NODES_TO_EDGES_FACTOR)
 
 
 ## Run The Experiment
+print("Beginning the experiment...")
+print("Making", str(NUM_GRAPHS), "with", str(NUM_NODES), "and", str(NUM_EDGESU), "each.")
 similarity_list = getGraphSimilarityList(NUM_GRAPHS, NUM_NODES, NUM_EDGES)
 similarity_dist = getCondensedSimilarityDistribution(similarity_list, COLUMN_LIST, METRICS)
 
@@ -30,3 +32,4 @@ similarity_dist = getCondensedSimilarityDistribution(similarity_list, COLUMN_LIS
 ## Exporting Data
 file_name = "Data/sim-dist-" + str(NUM_GRAPHS) + "-" + str(NUM_NODES) + "-" + str(NUM_EDGES) + ".csv"
 similarity_dist.to_csv(file_name, index=True)
+print("The program has finished running, and the experiment is complete. The data is saved to", file_name + ".")
