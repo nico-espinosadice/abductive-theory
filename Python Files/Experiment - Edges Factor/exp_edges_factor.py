@@ -63,6 +63,6 @@ print(str(NUM_GRAPHS), "graphs will be made for each node-to-edges-factor size, 
 edge_factor_dist = getEdgesFactorDistribution(NUM_GRAPHS, NUM_NODES, START_EDGES_FACTOR, END_EDGES_FACTOR, STEP, COLUMN_LIST, METRICS)
 
 ## Exporting Data
-file_name = "Data/edge-factor-dist-" + str(NUM_GRAPHS) + "-" + str(NUM_NODES) + "-" + str(START_EDGES_FACTOR) + "-" + str(END_EDGES_FACTOR) + "-" + str(STEP) + ".csv"
+file_name = "Data/edges-factor-dist-" + str(NUM_GRAPHS) + "-" + str(NUM_NODES) + "-" + str(START_EDGES_FACTOR) + "-" + str(END_EDGES_FACTOR) + "-" + str(STEP) + ".csv"
 edge_factor_dist.to_csv(file_name, index=True)
 print("The program has finished running, and the experiment is complete. The data is saved to", file_name + ".")
