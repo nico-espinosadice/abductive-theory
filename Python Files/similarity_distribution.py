@@ -7,21 +7,27 @@
 from jaccard_index import *
 from edit_distance import *
 
+### Getting Similarity of Nodes (In A Graph)
 
-### Getting Similarity List
+def getNodeSimilarityDistribution(num_nodes, num_edges):     
+    dg = makeDirectedGraph(num_nodes, num_edges)
+    
+    similarity_data = getSimilarityData(dg)
+    clique_data = getCliqueData(dg) 
+    similarity_data.update(clique_data)
+                    
+    return pd.DataFrame(data = similarity_data)
+
+
+
+### Getting Similarity of Nodes for Multiple Graphs
 
 def getGraphSimilarityList(num_graphs, num_nodes, num_edges): 
     graph_sim_list = []
     
     for i in range(num_graphs):
-        dg = makeDirectedGraph(num_nodes, num_edges)
-        
-        similarity_data = getSimilarityData(dg)
-        clique_data = getCliqueData(dg) 
-        similarity_data.update(clique_data)
-                        
-        graph_sim = pd.DataFrame(data = similarity_data)
-        graph_sim_list.append(graph_sim)
+        node_sim = getNodeSimilarityDistribution(num_nodes, num_edges)
+        graph_sim_list.append(node_sim)
     
     return graph_sim_list
 
@@ -68,7 +74,7 @@ def getCliqueData(gm):
 
 
 
-### Creating Similarity Distribution
+### Creating Similarity Distribution of Graphs
 
 def getGraphSummaryRow(graph_summary, column_list): 
     graph_summary_row = []
