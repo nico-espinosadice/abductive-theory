@@ -13,7 +13,7 @@ from similarity_distribution import *
 
 def getEdgesFactorDistribution(num_graphs, num_nodes, start_edges_factor, end_edges_factor, step, column_list, metrics):
     cols = pd.MultiIndex.from_product([column_list, metrics])
-    edge_factor_dist = pd.DataFrame(index = [["Nodes To Edges Factor"], ["Number of Edges Per Graph"], ["Number of Graphs"]], columns = cols)
+    edge_factor_dist = pd.DataFrame(index = [["Nodes To Edges Factor"], ["Number of Nodes Per Graph"], ["Number of Edges Per Graph"], ["Number of Graphs"]], columns = cols)
 
     for nodes_to_edges_factor in np.arange(start_edges_factor, end_edges_factor, step):
         nodes_to_edges_factor = round(nodes_to_edges_factor, 1) # round edges factor to one decimal place
@@ -23,7 +23,7 @@ def getEdgesFactorDistribution(num_graphs, num_nodes, start_edges_factor, end_ed
         graph_distribution = getCondensedSimilarityDistribution(graph_similarity_list, column_list, metrics)
         
         new_row = getNewRow(graph_distribution, column_list)
-        edge_factor_dist.loc[(nodes_to_edges_factor, num_edges, num_graphs),:] = new_row
+        edge_factor_dist.loc[(nodes_to_edges_factor, num_nodes, num_edges, num_graphs),:] = new_row
 
     return edge_factor_dist
 
