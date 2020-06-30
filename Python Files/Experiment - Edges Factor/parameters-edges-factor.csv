@@ -1,0 +1,7 @@
+﻿Column List,Metrics,Number of Nodes,Number of Graphs,Starting Nodes To Edges Factor,Ending Nodes To Edges Factor,Step
+Edit-Distance Immediate Similarity,mean,40,10,1,3.1,0.5
+Edit-Distance Full Similarity,50%,,,,,
+Jaccard Index Similarity,std,,,,,
+Longest Maximal Independent Set,,,,,,
+Number of Maximal Cliques,,,,,,
+Longest Maximal Clique,,,,,,
