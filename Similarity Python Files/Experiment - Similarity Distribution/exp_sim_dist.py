@@ -24,7 +24,7 @@ NUM_EDGES = int(NUM_NODES * NODES_TO_EDGES_FACTOR)
 
 ## Run The Experiment
 print("Beginning the experiment...")
-print("Making", str(NUM_GRAPHS), "with", str(NUM_NODES), "and", str(NUM_EDGESU), "each.")
+print("Making", str(NUM_GRAPHS), "with", str(NUM_NODES), "and", str(NUM_EDGES), "each.")
 similarity_list = getGraphSimilarityList(NUM_GRAPHS, NUM_NODES, NUM_EDGES)
 similarity_dist = getCondensedSimilarityDistribution(similarity_list, COLUMN_LIST, METRICS)
 
