@@ -42,13 +42,15 @@ def calculate_intersection(graph, children_a, children_b):
 # helper func to calculate the union
 def calculate_union(graph, children_a, children_b):
     union = 0
-    
     for i in children_a:
-        union += children_a[i]
-        
+        if not i in children_b:
+            union += 1
+        else:
+            union += children_a[i]
     for i in children_b:
-        union += children_b[i]
-    
+        if not i in children_a:
+            union += 1
+        else:
+            union += children_b[i]
     union -= calculate_intersection(graph, children_a, children_b)
-    
     return union
