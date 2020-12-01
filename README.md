@@ -1,2 +1,2 @@
-# abductive-theory
-[AMISTAD Lab](https://www.cs.hmc.edu/~montanez/amistad.html) Research: A Mathematical Theory of Abductive Logic. 
+# Source code for "A Probabilistic Theory of Abductive Reasoning" by Espinosa Dice et al.
+[AMISTAD Lab](https://www.cs.hmc.edu/~montanez/amistad.html) Research: A Probabilistic Theory of Abductive Reasoning. 
